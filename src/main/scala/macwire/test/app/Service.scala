@@ -13,7 +13,7 @@ case class ServiceA(resourceA: DBResource) {
 case class ServiceB(resourceB: DBResource, test: PrintString) {
   def printlnResult: IO[Unit] = for {
     u <- resourceB.getValue[IO]("xx")
-    _ <- IO(println("resourceA value:" + u.toString))
+    _ <- IO(println("resourceB value:" + u.toString))
   } yield {}
 }
 
