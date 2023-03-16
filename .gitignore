@@ -6,3 +6,5 @@ target
 /.metals/
 metals.sbt
 /.vscode/
+/sbt.bat
+/sbt-launch.jar
