@@ -1,8 +1,8 @@
-package macwire.test.app.service
+package macwire.test.service
 
 import cats.effect._
 import com.softwaremill.macwire.wire
-import macwire.test.app.resource.{DBResourceA, DBResourceB, Named, PrintStringResource}
+import macwire.test.resource.{DBResourceA, DBResourceB, Named, PrintStringResource}
 
 class AppInjection {
   lazy val namedInstance: Named = Named("macwire-issue281")

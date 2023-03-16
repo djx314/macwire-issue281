@@ -1,6 +1,6 @@
-package macwire.test.app.service
+package macwire.test.service
 
-import macwire.test.app.resource.{DBResource, PrintString}
+import macwire.test.resource.{DBResource, PrintString}
 import cats.effect.IO
 
 case class ServiceA(resourceA: DBResource) {

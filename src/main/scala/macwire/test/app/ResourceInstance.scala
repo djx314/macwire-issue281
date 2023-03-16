@@ -1,4 +1,4 @@
-package macwire.test.app.resource
+package macwire.test.resource
 
 import cats.Applicative
 import cats.effect.kernel.Resource
