@@ -17,7 +17,7 @@ case class ServiceB(resourceB: DBResource, test: PrintString) {
   } yield {}
 }
 
-case class ServiceC(serviceA: ServiceA, serviceB: ServiceA, printString: PrintString) {
+case class ServiceC(serviceA: ServiceA, serviceB: ServiceB, printString: PrintString) {
   def printlnResult: IO[Unit] = for {
     _ <- serviceA.printlnResult
     _ <- serviceB.printlnResult
