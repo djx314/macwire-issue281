@@ -12,7 +12,7 @@ class AppInjection {
       wire[PrintStringResource].resource[F].map { implicit printlnString =>
         lazy val serviceA: ServiceA = ServiceA(resourceA = dbA) // By name injection.
         // Need more friendly.
-        lazy val serviceB: ServiceB = ServiceB(resourceB = dbB, test = implicitly) // By name injectioon and by type injection.
+        lazy val serviceB: ServiceB = ServiceB(resourceB = dbB, test = implicitly) // By name injection and by type injection.
         wire[ServiceC]
       }
     }
