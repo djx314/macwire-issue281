@@ -11,7 +11,7 @@ class AppInjection {
     wire[DBResourceB].resource[F].flatMap { dbB =>
       wire[PrintStringResource].resource[F].map { implicit printlnString =>
         lazy val serviceA: ServiceA = ServiceA(resourceA = dbA) // Injection by name.
-        // Need more friendly.
+        // Need more friendly. `test = implicitly` is simply fetching variable `printlnString`
         lazy val serviceB: ServiceB = ServiceB(resourceB = dbB, test = implicitly) // Injection by name and injection by type.
         wire[ServiceC]
       }
