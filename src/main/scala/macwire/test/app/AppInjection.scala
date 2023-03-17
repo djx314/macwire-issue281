@@ -7,9 +7,9 @@ import macwire.test.resource.{DBResourceA, DBResourceB, Named, PrintStringResour
 class AppInjection {
   lazy val namedInstance: Named = Named("macwire-issue281")
 
-  def serviceCResource[F[_]]: Resource[F, ServiceC] = wire[DBResourceA].resource[F].flatMap { dbA =>
-    wire[DBResourceB].resource[F].flatMap { dbB =>
-      wire[PrintStringResource].resource[F].map { implicit printlnString =>
+  def serviceCResource[F[_]]: Resource[F, ServiceC] = wire[DBResourceA].resource.flatMap { dbA =>
+    wire[DBResourceB].resource.flatMap { dbB =>
+      wire[PrintStringResource].resource.map { implicit printlnString =>
         lazy val serviceA: ServiceA = ServiceA(resourceA = dbA) // Injection by name.
         // Need more friendly.
         // `test = implicitly` is simply fetching variable `printlnString`.
