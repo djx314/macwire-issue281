@@ -5,6 +5,10 @@ import cats.effect.Resource
 
 case class Named(appName: String)
 
+class NamedResource(appName: String) {
+  def resource[F[_]: Monad]: Resource[F, Named] = Applicative[Resource[F, *]].pure(Named(appName))
+}
+
 abstract class DBResource {
   def dbName: String
   def initMap: Map[String, Int]
