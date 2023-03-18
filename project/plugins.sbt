@@ -1,1 +1,3 @@
-addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.5.0")
+import djx.sbt.depts.plugins.{PluginsCollection => pluginCol}
+
+addSbtPlugin(pluginCol.`sbt-scalafmt`)
