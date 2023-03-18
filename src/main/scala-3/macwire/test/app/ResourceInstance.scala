@@ -36,6 +36,5 @@ class PrintString(appName: String):
 end PrintString
 
 class PrintStringResource(using named: Named):
-
   def resource[F[_]]: Resource[F, PrintString] = Applicative[Resource[F, *]].pure(new PrintString(named.appName))
 end PrintStringResource
