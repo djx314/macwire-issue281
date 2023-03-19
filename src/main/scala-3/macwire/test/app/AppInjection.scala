@@ -6,13 +6,15 @@ import macwire.test.resource.{DBResource, DBResourceA, DBResourceB, Named, Named
 
 class AppInjection:
 
-  def serviceCResource[F[_]]: Resource[F, ServiceC] = for
-    given Named       <- NamedResource("macwire-issue281").resource
-    dbA               <- DBResourceA().resource
-    dbB               <- DBResourceB().resource
-    given PrintString <- PrintStringResource().resource
-    given ServiceA = ServiceA(using resourceA = dbA)
-    given ServiceB = ServiceB(using resourceB = dbB)
-  yield ServiceC()
+  def serviceCResource[F[_]]: Resource[F, ServiceC] =
+    for
+      given Named       <- NamedResource("macwire-issue281").resource
+      dbA               <- DBResourceA().resource
+      dbB               <- DBResourceB().resource
+      given PrintString <- PrintStringResource().resource
+    yield
+      given ServiceA = ServiceA(using resourceA = dbA)
+      given ServiceB = ServiceB(using resourceB = dbB)
+      ServiceC()
 
 end AppInjection
